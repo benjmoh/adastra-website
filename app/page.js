@@ -4,6 +4,8 @@ import Logo from "./components/Logo";
 import CTAButton from "./components/CTAButton";
 import Image from "next/image";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function HomePage() {
   return (
     <div className="relative min-h-screen overflow-x-hidden">
@@ -112,7 +114,7 @@ export default function HomePage() {
                       {item.iconSrc && (
                         <div className="relative h-9 w-9 sm:h-10 sm:w-10 overflow-hidden rounded-2xl bg-black/40 border border-white/10">
                           <Image
-                            src={item.iconSrc}
+                            src={`${basePath}${item.iconSrc}`}
                             alt={`${item.name} logo`}
                             fill
                             className="object-contain p-1.5"
@@ -342,13 +344,12 @@ export default function HomePage() {
             <div className="grid gap-10 md:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] items-center">
               <div className="flex justify-center md:justify-start">
                 {/*
-                  FOUNDER IMAGE
-                  Using your uploaded headshot at /public/images/founder-benjamin.jpeg
+                  FOUNDER IMAGE using your uploaded headshot
                 */}
                 <div className="relative h-40 w-40 sm:h-48 sm:w-48 rounded-full border border-white/15 bg-white/5 p-[3px] shadow-soft-glow">
                   <div className="relative h-full w-full overflow-hidden rounded-full bg-black/60">
                     <Image
-                      src="/images/founder-benjamin.jpeg"
+                      src={`${basePath}/images/founder-benjamin.jpeg`}
                       alt="Portrait of Benjamin Mohaci"
                       fill
                       className="object-cover"
