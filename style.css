@@ -83,6 +83,12 @@ a {
   overflow: hidden;
 }
 
+.background-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* 50% black overlay in front of stars */
+}
+
 .shooting-star {
   position: absolute;
   height: 2px;
@@ -225,7 +231,7 @@ a {
 .hero-logo {
   margin-inline: auto;
   margin-bottom: 28px;
-  width: min(260px, 70vw);
+  width: min(780px, 80vw);
 }
 
 .hero-logo-image {
