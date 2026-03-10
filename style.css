@@ -64,7 +64,6 @@ a {
   inset: 0;
   z-index: -1;
   overflow: hidden;
-  background: #000;
 }
 
 .background-image {
