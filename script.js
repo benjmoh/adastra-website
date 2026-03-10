@@ -57,12 +57,6 @@ function createShootingStar() {
 }
 
 function startShootingStars() {
-  // A very small handful at the beginning so the user occasionally
-  // sees one early, then spaced-out, atmospheric occurrences.
-  for (let i = 0; i < 2; i++) {
-    setTimeout(createShootingStar, 800 + i * 900);
-  }
-
   function scheduleNext() {
     const interval = 10000 + Math.random() * 15000; // every 10–25 seconds
     setTimeout(() => {
