@@ -108,13 +108,12 @@ a {
 }
 
 .shooting-star__head {
-  width: 4px;
-  height: 4px;
-  border-radius: 999px;
-  background: #e5f0ff;
-  box-shadow:
-    0 0 6px rgba(226, 232, 240, 0.9),
-    0 0 14px rgba(191, 219, 254, 0.85);
+  /* Head visually removed so stars appear as elegant trailing lines only */
+  width: 0;
+  height: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .shooting-star__tail {

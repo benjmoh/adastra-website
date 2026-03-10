@@ -30,9 +30,10 @@ function createShootingStar() {
   const leftPercent = Math.random() * 90; // 0–90% of viewport width
   const angle = -10 + Math.random() * 20; // -10deg to +10deg
 
-  const distance = 260 + Math.random() * 180; // 260–440px travel distance
+  // Faster, longer streaks for a more cinematic feel
+  const distance = 360 + Math.random() * 160; // 360–520px travel distance
   const drift = -10 + Math.random() * 20; // slight vertical drift
-  const duration = 0.9 + Math.random() * 0.6; // 0.9–1.5s
+  const duration = 0.6 + Math.random() * 0.4; // 0.6–1.0s (faster)
   const opacity = 0.4 + Math.random() * 0.3; // 0.4–0.7
 
   const tailLength = 80 + Math.random() * 90; // 80–170px
@@ -63,7 +64,7 @@ function startShootingStars() {
   }
 
   function scheduleNext() {
-    const interval = 3000 + Math.random() * 3000; // every 3–6 seconds (for testing)
+    const interval = 8000 + Math.random() * 10000; // every 8–18 seconds
     setTimeout(() => {
       createShootingStar();
       scheduleNext();
