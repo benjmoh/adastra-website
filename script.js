@@ -62,7 +62,7 @@ function startShootingStars() {
   }
 
   function scheduleNext() {
-    const interval = 8000 + Math.random() * 10000; // every 8–18 seconds
+    const interval = 14000 + Math.random() * 14000; // every 14–28 seconds
     setTimeout(() => {
       createShootingStar();
       scheduleNext();
