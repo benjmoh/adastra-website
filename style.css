@@ -288,7 +288,9 @@ a {
 .hero-text h1 {
   margin: 0 0 10px;
   font-size: clamp(2.4rem, 5vw, 3.4rem);
-  letter-spacing: -0.04em;
+  font-weight: 400;            /* lighter, less bold */
+  letter-spacing: 0.06em;      /* subtle sci‑fi / modern tracking */
+  text-transform: uppercase;   /* more futuristic, professional feel */
 }
 
 .hero-subtitle {
@@ -360,19 +362,21 @@ a {
 }
 
 .logo-card-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.9);
+  /* Let the icon stand on its own (no bubble) */
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
+  padding: 0;
 }
 
 .logo-card-image {
-  width: 100%;
-  height: 100%;
+  /* Make icons large and prominent – similar visual weight to the title */
+  width: 72px;
+  height: auto;
   object-fit: contain;
 }
 
