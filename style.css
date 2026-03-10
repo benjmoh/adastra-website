@@ -351,14 +351,16 @@ a {
 }
 
 .logo-card {
-  border-radius: 999px;
-  background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617);
-  border: 1px solid rgba(148, 163, 184, 0.55);
-  padding: 10px 14px;
+  /* Pure icon row – no pill/bubble background */
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+
   display: flex;
   align-items: center;
-  gap: 10px;
-  box-shadow: 0 0 28px rgba(15, 23, 42, 0.95);
+  justify-content: center;
 }
 
 .logo-card-icon {
