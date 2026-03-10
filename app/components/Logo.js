@@ -1,7 +1,5 @@
 import Image from "next/image";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
 export default function Logo() {
   return (
     <div className="inline-flex items-center gap-3">
@@ -11,7 +9,7 @@ export default function Logo() {
       */}
       <div className="relative h-9 w-9 overflow-hidden rounded-full border border-white/18 bg-white/5 shadow-soft-glow">
         <Image
-          src={`${basePath}/images/logo-adastra.png`}
+          src="/images/logo-adastra.png"
           alt="Adastra Systems logo"
           fill
           className="object-contain p-1.5"

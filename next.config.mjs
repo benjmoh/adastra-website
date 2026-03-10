@@ -13,9 +13,6 @@ const nextConfig = {
     // Required for next export when using <Image>
     unoptimized: true
   },
-  env: {
-    NEXT_PUBLIC_BASE_PATH: isProd ? "/adastra-website" : ""
-  },
   // Serve under /adastra-website when deployed to GitHub Pages
   basePath: isProd ? "/adastra-website" : "",
   assetPrefix: isProd ? "/adastra-website/" : ""

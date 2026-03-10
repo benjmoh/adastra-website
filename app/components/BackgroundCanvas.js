@@ -2,8 +2,6 @@
 
 import { useEffect, useRef } from "react";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
 // Layered background:
 // - Base image (set via Tailwind utility using stars-background.jpg)
 // - Soft overlay for readability
@@ -80,13 +78,11 @@ export default function BackgroundCanvas() {
       aria-hidden="true"
       className="fixed inset-0 -z-20 overflow-hidden bg-black"
     >
-      {/* BACKGROUND IMAGE using your uploaded stars background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${basePath}/images/stars-background.png)`
-        }}
-      />
+      {/*
+        BACKGROUND IMAGE
+        Using your uploaded stars background at /public/images/stars-background.png
+      */}
+      <div className="absolute inset-0 bg-[url('/images/stars-background.png')] bg-cover bg-center" />
       {/* Subtle dark overlay for readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/85 to-black/95" />
       {/* Soft radial glow near top for cinematic feel */}
