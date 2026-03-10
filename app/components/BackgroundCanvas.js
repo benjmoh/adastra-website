@@ -83,10 +83,10 @@ export default function BackgroundCanvas() {
         Using your uploaded stars background at /public/images/stars-background.png
       */}
       <div className="absolute inset-0 bg-[url('/images/stars-background.png')] bg-cover bg-center" />
-      {/* Subtle dark overlay for readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/85 to-black/95" />
+      {/* Subtle dark overlay for readability, lightened to reveal more stars */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/75 to-black/90" />
       {/* Soft radial glow near top for cinematic feel */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-radial-soft opacity-70 mix-blend-screen" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-radial-soft opacity-50 mix-blend-screen" />
     </div>
   );
 }

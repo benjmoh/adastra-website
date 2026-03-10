@@ -12,40 +12,32 @@ export default function HomePage() {
       <div className="relative z-10 flex min-h-screen flex-col">
         <header className="section-container pt-6 sm:pt-8 lg:pt-9 flex items-center justify-between">
           <Logo />
-          <nav className="hidden sm:flex items-center gap-7 text-[11px] uppercase tracking-[0.28em] text-adastra-muted/80">
-            <a href="#what-is-ai" className="hover:text-white transition-colors">
-              What is AI
-            </a>
-            <a href="#examples" className="hover:text-white transition-colors">
-              Examples
-            </a>
-            <a href="#impact" className="hover:text-white transition-colors">
-              Impact
-            </a>
-            <a href="#contact" className="hover:text-white transition-colors">
-              Contact
-            </a>
-          </nav>
         </header>
 
         {/* HERO */}
         <main className="flex-1">
           <section className="section-container flex flex-col items-center justify-center py-24 sm:py-32 lg:py-40 text-center">
-            <div className="max-w-3xl space-y-9">
-              <Logo />
+            <div className="max-w-3xl space-y-8">
+              {/* Large hero logo without circular frame */}
+              <div className="relative mx-auto h-20 w-48 sm:h-24 sm:w-56 lg:h-28 lg:w-64">
+                <Image
+                  src="/images/logo-adastra.png"
+                  alt="Adastra Systems logo"
+                  fill
+                  priority
+                  className="object-contain"
+                />
+              </div>
+
               <div className="space-y-3">
-                <h1 className="text-[2.5rem] sm:text-[3rem] lg:text-[3.6rem] font-semibold tracking-tight leading-[1.05]">
+                <h1 className="text-[2.4rem] sm:text-[3rem] lg:text-[3.4rem] font-semibold tracking-tight leading-[1.05]">
                   Adastra Systems
                 </h1>
                 <p className="text-xs sm:text-sm uppercase tracking-[0.32em] text-adastra-muted/80">
                   AI Automation Services
                 </p>
               </div>
-              <p className="text-sm sm:text-base lg:text-lg text-adastra-muted leading-relaxed">
-                Elegant, production-grade automation that connects your
-                existing tools, reduces manual work, and unlocks scalable
-                operational efficiency.
-              </p>
+
               <div className="pt-2">
                 <CTAButton>Book an appointment</CTAButton>
               </div>
