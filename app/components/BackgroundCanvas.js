@@ -76,17 +76,17 @@ export default function BackgroundCanvas() {
     <div
       ref={containerRef}
       aria-hidden="true"
-      className="fixed inset-0 -z-20 overflow-hidden bg-black"
+      className="fixed inset-0 -z-20 overflow-hidden"
     >
-      {/*
-        BACKGROUND IMAGE
-        Using your uploaded stars background at /public/images/stars-background.png
-      */}
-      <div className="absolute inset-0 bg-[url('/images/stars-background.png')] bg-cover bg-center" />
+      {/* BACKGROUND IMAGE using stars-background.png from public/images */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('images/stars-background.png')" }}
+      />
       {/* Subtle dark overlay for readability, lightened to reveal more stars */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/75 to-black/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/55 to-black/80" />
       {/* Soft radial glow near top for cinematic feel */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-radial-soft opacity-50 mix-blend-screen" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-radial-soft opacity-30 mix-blend-screen" />
     </div>
   );
 }

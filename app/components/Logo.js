@@ -9,7 +9,7 @@ export default function Logo() {
       */}
       <div className="relative h-9 w-9 overflow-hidden rounded-full border border-white/18 bg-white/5 shadow-soft-glow">
         <Image
-          src="/images/logo-adastra.png"
+          src="images/logo-adastra.png"
           alt="Adastra Systems logo"
           fill
           className="object-contain p-1.5"

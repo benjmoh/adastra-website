@@ -21,7 +21,7 @@ export default function HomePage() {
               {/* Large hero logo without circular frame */}
               <div className="relative mx-auto h-20 w-48 sm:h-24 sm:w-56 lg:h-28 lg:w-64">
                 <Image
-                  src="/images/logo-adastra.png"
+                  src="images/logo-adastra.png"
                   alt="Adastra Systems logo"
                   fill
                   priority
@@ -90,10 +90,10 @@ export default function HomePage() {
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5">
                 {[
-                  { name: "OpenAI", iconSrc: "/images/openAI.png" },
-                  { name: "Zapier", iconSrc: "/images/zapier.png" },
-                  { name: "Python", iconSrc: "/images/python.png" },
-                  { name: "Airtable", iconSrc: "/images/airtable.png" }
+                  { name: "OpenAI", iconSrc: "images/openAI.png" },
+                  { name: "Zapier", iconSrc: "images/zapier.png" },
+                  { name: "Python", iconSrc: "images/python.png" },
+                  { name: "Airtable", iconSrc: "images/airtable.png" }
                 ].map((item) => (
                   <div
                     key={item.name}
@@ -340,7 +340,7 @@ export default function HomePage() {
                 <div className="relative h-40 w-40 sm:h-48 sm:w-48 rounded-full border border-white/15 bg-white/5 p-[3px] shadow-soft-glow">
                   <div className="relative h-full w-full overflow-hidden rounded-full bg-black/60">
                     <Image
-                      src="/images/founder-benjamin.jpeg"
+                      src="images/founder-benjamin.jpeg"
                       alt="Portrait of Benjamin Mohaci"
                       fill
                       className="object-cover"
