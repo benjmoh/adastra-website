@@ -360,14 +360,14 @@ a {
 }
 
 .logo-card-icon {
-  width: 26px;
-  height: 26px;
+  width: 44px;
+  height: 44px;
   border-radius: 999px;
   background: rgba(15, 23, 42, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px;
+  padding: 6px;
 }
 
 .logo-card-image {
