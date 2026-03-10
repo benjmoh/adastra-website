@@ -91,18 +91,64 @@ a {
 
 .shooting-star {
   position: absolute;
+  width: 1px; /* actual size driven by children + CSS variables */
+  height: 1px;
+  opacity: 0;
+  transform-origin: 0 50%;
+  pointer-events: none;
+}
+
+.shooting-star__track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  transform-origin: 0 50%;
+}
+
+.shooting-star__head {
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: #e5f0ff;
+  box-shadow:
+    0 0 6px rgba(226, 232, 240, 0.9),
+    0 0 14px rgba(191, 219, 254, 0.85);
+}
+
+.shooting-star__tail {
   height: 2px;
-  width: 140px;
+  border-radius: 999px;
   background: linear-gradient(
     90deg,
-    rgba(248, 250, 252, 0),
-    rgba(248, 250, 252, 0.9),
-    rgba(125, 211, 252, 0.2)
+    rgba(148, 163, 184, 0.0),
+    rgba(191, 219, 254, 0.7),
+    rgba(226, 232, 240, 0.1)
   );
-  border-radius: 999px;
-  filter: drop-shadow(0 0 12px rgba(191, 219, 254, 0.9));
-  transform-origin: 0 50%;
-  opacity: 0;
+  box-shadow: 0 0 10px rgba(148, 163, 184, 0.4);
+}
+
+@keyframes shooting-star-flight {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--star-opacity, 0.9);
+  }
+  70% {
+    opacity: var(--star-opacity, 0.9);
+  }
+  100% {
+    transform: translate3d(
+      calc(var(--star-distance, 260px)),
+      calc(var(--star-drift, 12px)),
+      0
+    );
+    opacity: 0;
+  }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -113,6 +159,7 @@ a {
   position: relative;
   z-index: 1;
   padding: 20px 20px 4px;
+  display: none; /* Hero should show only main logo, title, and CTA */
 }
 
 @media (min-width: 768px) {
@@ -230,8 +277,8 @@ a {
 
 .hero-logo {
   margin-inline: auto;
-  margin-bottom: 28px;
-  width: min(780px, 80vw);
+  margin-bottom: 16px; /* tighter gap between logo and title */
+  width: min(520px, 70vw); /* slightly smaller than previous 3x size */
 }
 
 .hero-logo-image {

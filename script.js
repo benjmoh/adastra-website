@@ -1,9 +1,9 @@
 // Shooting star effect and section fade-in behaviour
 // --------------------------------------------------
-// - The shooting star animation is controlled by createShootingStar()
-//   and startShootingStars() below.
-// - To tweak the effect, adjust the randomisation ranges or timing
-//   inside createShootingStar() and startShootingStars().
+// Shooting stars:
+// - Each star has a bright head and a soft, fading tail.
+// - Movement, angle, length, opacity, and spawn timing are all slightly randomised
+//   to feel natural and cinematic.
 
 function createShootingStar() {
   const container = document.querySelector(".shooting-stars");
@@ -12,43 +12,57 @@ function createShootingStar() {
   const star = document.createElement("div");
   star.className = "shooting-star";
 
-  const topPercent = Math.random() * 60 + 5;
-  const leftPercent = Math.random() * 80 - 20;
-  const duration = Math.random() * 1.4 + 1.4;
-  const delay = Math.random() * 0.6;
+  const track = document.createElement("div");
+  track.className = "shooting-star__track";
+
+  const head = document.createElement("div");
+  head.className = "shooting-star__head";
+
+  const tail = document.createElement("div");
+  tail.className = "shooting-star__tail";
+
+  track.appendChild(head);
+  track.appendChild(tail);
+  star.appendChild(track);
+
+  const topPercent = 5 + Math.random() * 55; // upper 60% of viewport
+  const leftPercent = -10 + Math.random() * 60; // may start off-screen
+  const angle = -10 + Math.random() * 20; // -10deg to +10deg
+
+  const distance = 220 + Math.random() * 120; // px travel distance
+  const drift = -10 + Math.random() * 20; // slight vertical drift
+  const duration = 0.9 + Math.random() * 0.6; // 0.9–1.5s
+  const opacity = 0.4 + Math.random() * 0.3; // 0.4–0.7
+
+  const tailLength = 80 + Math.random() * 90; // 80–170px
 
   star.style.top = `${topPercent}%`;
   star.style.left = `${leftPercent}%`;
-  star.style.transform = "rotate(12deg)";
-  star.style.transition = `transform ${duration}s ease-out, opacity ${
-    duration * 0.8
-  }s ease-out`;
-  star.style.transitionDelay = `${delay}s`;
+
+  track.style.setProperty("--star-distance", `${distance}px`);
+  track.style.setProperty("--star-drift", `${drift}px`);
+  track.style.setProperty("--star-opacity", opacity.toString());
+  track.style.transform = `rotate(${angle}deg)`;
+  tail.style.width = `${tailLength}px`;
+
+  track.style.animation = `shooting-star-flight ${duration}s ease-out forwards`;
 
   container.appendChild(star);
 
-  requestAnimationFrame(() => {
-    star.style.opacity = "1";
-    star.style.transform = "translateX(220px) rotate(12deg)";
-  });
-
   setTimeout(() => {
-    star.style.opacity = "0";
-    setTimeout(() => {
-      star.remove();
-    }, 600);
-  }, (duration + delay) * 1000);
+    star.remove();
+  }, duration * 1000 + 200);
 }
 
 function startShootingStars() {
-  // Create a few initial stars so the effect is visible quickly.
-  for (let i = 0; i < 3; i++) {
-    setTimeout(createShootingStar, i * 700);
+  // A very small handful at the beginning so the user occasionally
+  // sees one early, then spaced-out, atmospheric occurrences.
+  for (let i = 0; i < 2; i++) {
+    setTimeout(createShootingStar, 800 + i * 900);
   }
 
-  // Then schedule additional stars at random intervals.
   function scheduleNext() {
-    const interval = Math.random() * 7000 + 6000; // 6–13 seconds
+    const interval = 8000 + Math.random() * 10000; // every 8–18 seconds
     setTimeout(() => {
       createShootingStar();
       scheduleNext();
