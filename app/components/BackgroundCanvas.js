@@ -83,10 +83,6 @@ export default function BackgroundCanvas() {
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('images/stars-background.png')" }}
       />
-      {/* Subtle dark overlay for readability, lightened to reveal more stars */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/55 to-black/80" />
-      {/* Soft radial glow near top for cinematic feel */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-radial-soft opacity-30 mix-blend-screen" />
     </div>
   );
 }
