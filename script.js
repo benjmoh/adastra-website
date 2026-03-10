@@ -25,11 +25,12 @@ function createShootingStar() {
   track.appendChild(tail);
   star.appendChild(track);
 
-  const topPercent = 5 + Math.random() * 55; // upper 60% of viewport
-  const leftPercent = -10 + Math.random() * 60; // may start off-screen
+  // Spawn only within the visible viewport so streaks are always on-screen
+  const topPercent = 10 + Math.random() * 70; // 10–80% of viewport height
+  const leftPercent = Math.random() * 90; // 0–90% of viewport width
   const angle = -10 + Math.random() * 20; // -10deg to +10deg
 
-  const distance = 220 + Math.random() * 120; // px travel distance
+  const distance = 260 + Math.random() * 180; // 260–440px travel distance
   const drift = -10 + Math.random() * 20; // slight vertical drift
   const duration = 0.9 + Math.random() * 0.6; // 0.9–1.5s
   const opacity = 0.4 + Math.random() * 0.3; // 0.4–0.7

@@ -93,7 +93,6 @@ a {
   position: absolute;
   width: 1px; /* actual size driven by children + CSS variables */
   height: 1px;
-  opacity: 0;
   transform-origin: 0 50%;
   pointer-events: none;
 }
