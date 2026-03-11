@@ -80,10 +80,11 @@ function createShootingStar() {
 
 function startShootingStars() {
   function scheduleNext() {
-    // More frequent when the hero is in view (user is taking in the first impression),
-    // less frequent deeper in the content so it doesn't distract from reading.
-    const min = heroInView ? 5000 : 8000;  // 5–10s in hero, 8–25s in content
-    const max = heroInView ? 10000 : 25000;
+    // More frequent when the hero is in view (first impression),
+    // slightly less frequent deeper in the content so it doesn't distract from reading.
+    // Hero: ~3–7s between stars. Content: ~8–18s between stars.
+    const min = heroInView ? 3000 : 8000;
+    const max = heroInView ? 7000 : 18000;
     const interval = min + Math.random() * (max - min);
     setTimeout(() => {
       createShootingStar();
