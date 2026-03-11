@@ -741,7 +741,7 @@ a {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 32px;
+  gap: 24px;
   margin-bottom: 24px;
 }
 
@@ -774,10 +774,23 @@ a {
   line-height: 1.5;
 }
 
+.ready-arrow {
+  font-size: 1.6rem;
+  color: rgba(148, 163, 184, 0.9);
+}
+
 @media (max-width: 640px) {
+  .ready-diagram {
+    flex-direction: column;
+  }
+
   .ready-circle {
     width: 140px;
     height: 140px;
+  }
+
+  .ready-arrow {
+    transform: rotate(90deg);
   }
 }
 
