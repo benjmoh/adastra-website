@@ -509,42 +509,10 @@ a {
   gap: 18px;
 }
 
-/* Special layout for 5-step lead intelligence workflow */
-.workflow-lead {
-  flex-direction: column;
-  align-items: stretch;
-  gap: 16px;
-}
-
-.workflow-lead .workflow-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-}
-
-.workflow-lead .workflow-row-alt {
-  flex-direction: row-reverse; /* creates the wrapping S-flow */
-}
-
-.workflow-lead .workflow-row-center {
-  justify-content: center;
-}
-
-.workflow-bend-arrow {
-  text-align: center;
-  font-size: 1.4rem;
-  color: rgba(148, 163, 184, 0.9);
-}
-
-.workflow-bend-arrow-center {
-  margin-left: 16px;
-}
-
 .workflow-step {
   /* Large circular frame with text inside */
-  width: 180px;
-  height: 180px;
+  width: 150px;
+  height: 150px;
   border-radius: 999px;
   border: 1px solid rgba(148, 163, 184, 0.7);
   background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617);
@@ -605,19 +573,6 @@ a {
   .workflow-arrow {
     align-self: center;
     transform: rotate(90deg);
-  }
-
-  /* Lead workflow: keep rows readable on small screens */
-  .workflow-lead .workflow-row,
-  .workflow-lead .workflow-row-alt,
-  .workflow-lead .workflow-row-center {
-    flex-direction: row;
-    justify-content: flex-start;
-  }
-
-  .workflow-bend-arrow,
-  .workflow-bend-arrow-center {
-    margin-left: 0;
   }
 }
 
