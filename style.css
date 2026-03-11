@@ -422,31 +422,54 @@ a {
 }
 
 .step-card {
-  background: var(--card);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-subtle);
-  padding: 18px 18px 20px;
-  box-shadow: var(--shadow-soft);
+  /* Remove dark card boxes – keep content on background */
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  padding: 18px 0 20px;
+  box-shadow: none;
 }
 
 .step-number {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: rgba(148, 163, 184, 0.95);
+  padding-bottom: 8px;
   margin-bottom: 10px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.55); /* divider between number and title */
+  display: inline-block;
 }
 
 .step-card h3 {
   margin: 0 0 8px;
-  font-size: 1rem;
+  font-size: 1.12rem; /* larger quadrant titles */
 }
 
 .step-card p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.95rem; /* slightly larger body for this section */
   color: var(--muted);
   line-height: 1.6;
+}
+
+/* Why Choose Adastra – card style */
+.why-cards .step-card {
+  background: rgba(24, 31, 47, 0.9);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  padding: 18px 18px 20px;
+  box-shadow: 0 0 32px rgba(15, 23, 42, 0.85);
+  text-align: left;
+}
+
+.why-cards .step-card h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.why-cards .step-card p {
+  font-size: 0.9rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -461,11 +484,12 @@ a {
 }
 
 .example-card {
-  background: var(--card-softer);
-  border-radius: var(--radius-xl);
-  border: 1px solid rgba(148, 163, 184, 0.55);
-  padding: 22px 20px 22px;
-  box-shadow: 0 0 40px rgba(15, 23, 42, 0.95);
+  /* Remove dark card boxes – diagrams sit directly on background */
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  padding: 18px 0 18px;
+  box-shadow: none;
 }
 
 .example-header h3 {
@@ -473,55 +497,49 @@ a {
   font-size: 1.02rem;
 }
 
-.example-header p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
 .workflow {
   margin-top: 18px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 10px;
 }
 
 .workflow-horizontal {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
+  gap: 18px;
 }
 
 .workflow-step {
-  min-width: 0;
-}
-
-.workflow-pill {
-  display: inline-flex;
+  /* Large circular frame with text inside */
+  width: 180px;
+  height: 180px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617);
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 4px 11px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.45);
-  background: radial-gradient(
-    circle at top,
-    rgba(15, 23, 42, 0.9),
-    rgba(15, 23, 42, 0.95)
-  );
-  font-size: 0.7rem;
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  color: rgba(226, 232, 240, 0.9);
-  margin-bottom: 5px;
+  text-align: center;
+  padding: 18px;
 }
 
-.workflow-label {
-  font-size: 0.86rem;
+.workflow-step-number {
+  font-size: 0.78rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.95);
+  margin-bottom: 8px;
+}
+
+.workflow-step-label {
+  font-size: 0.95rem;
   color: var(--muted);
+  line-height: 1.4;
 }
 
 .workflow-arrow {
-  font-size: 1rem;
+  font-size: 1.4rem;
   color: rgba(148, 163, 184, 0.9);
 }
 
@@ -543,44 +561,66 @@ a {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Metrics                                                                   */
+/*  Metrics / Impact section                                                  */
 /* -------------------------------------------------------------------------- */
+
+.impact-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
 
 .metrics-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
   margin-top: 28px;
   margin-bottom: 10px;
 }
 
-@media (min-width: 640px) {
-  .metrics-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
 .metric-card {
-  background: var(--card);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-subtle);
-  padding: 18px 16px;
-  box-shadow: var(--shadow-soft);
+  text-align: center;
 }
 
-.metric-label {
+.metric-number {
+  font-size: clamp(2.6rem, 4vw, 3.2rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.metric-heading {
   font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(226, 232, 240, 0.95);
-  margin-bottom: 6px;
+  letter-spacing: 0.18em;
+  color: rgba(226, 232, 240, 0.9);
+  margin-bottom: 8px;
 }
 
-.metric-card p {
+.metric-copy {
   margin: 0;
-  font-size: 0.87rem;
+  font-size: 0.85rem;
   color: var(--muted);
+  line-height: 1.5;
+}
+
+.impact-copy {
+  max-width: 420px;
+}
+
+@media (max-width: 768px) {
+  .impact-layout {
+    flex-direction: column;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .metric-card {
+    text-align: left;
+  }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -606,7 +646,7 @@ a {
 }
 
 .founder-photo-inner {
-  border-radius: 32px;
+  border-radius: 999px;
   padding: 4px;
   background: radial-gradient(circle at top, rgba(148, 163, 184, 0.7), #020617);
   box-shadow: 0 0 40px rgba(15, 23, 42, 0.9);
@@ -614,9 +654,9 @@ a {
 
 .founder-photo {
   display: block;
-  border-radius: 28px;
-  width: min(320px, 80vw);
-  height: auto;
+  border-radius: 999px;
+  width: min(260px, 70vw);
+  height: min(260px, 70vw);
   object-fit: cover;
 }
 
@@ -634,10 +674,11 @@ a {
 .roadmap-card {
   margin-top: 32px;
   padding: 20px 18px 18px;
-  border-radius: var(--radius-xl);
-  background: radial-gradient(circle at top, rgba(15, 23, 42, 0.94), #020617);
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  box-shadow: 0 0 40px rgba(15, 23, 42, 0.95);
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  text-align: center;
 }
 
 .roadmap-label {
@@ -672,6 +713,52 @@ a {
   margin-top: 18px;
 }
 
+/* Ready to Automate – circular engagement diagram */
+.ready-diagram {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.ready-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.ready-circle {
+  width: 170px;
+  height: 170px;
+  border-radius: 999px;
+  border: 2px solid rgba(248, 250, 252, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ready-icon {
+  font-size: 2rem;
+  color: rgba(248, 250, 252, 0.9);
+}
+
+.ready-label {
+  font-size: 0.9rem;
+  text-align: center;
+  color: rgba(248, 250, 252, 0.9);
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .ready-circle {
+    width: 140px;
+    height: 140px;
+  }
+}
+
 /* -------------------------------------------------------------------------- */
 /*  Contact                                                                   */
 /* -------------------------------------------------------------------------- */
@@ -687,6 +774,18 @@ a {
   .contact-grid {
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.5fr);
   }
+}
+
+.contact-card {
+  background: rgba(15, 23, 42, 0.95);
+  border-radius: 18px;
+  border: 1px solid rgba(30, 64, 175, 0.55);
+  padding: 20px 22px;
+  box-shadow: 0 0 32px rgba(15, 23, 42, 0.9);
+}
+
+.contact-card p {
+  margin-bottom: 10px;
 }
 
 .eyebrow {
@@ -734,18 +833,9 @@ a {
   gap: 6px;
   font-size: 0.82rem;
   color: rgba(148, 163, 184, 0.9);
-}
-
-@media (min-width: 768px) {
-  .footer-inner {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-}
-
-.footer-tagline {
-  opacity: 0.9;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 /* -------------------------------------------------------------------------- */
