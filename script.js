@@ -24,16 +24,33 @@ function createShootingStar() {
   track.appendChild(head);
   track.appendChild(tail);
   star.appendChild(track);
+  const viewportWidth = window.innerWidth || 800;
+  const isMobile = viewportWidth <= 768;
 
-  // Spawn only within the visible viewport so streaks are always on-screen
-  const topPercent = 10 + Math.random() * 70; // 10–80% of viewport height
-  const leftPercent = Math.random() * 90; // 0–90% of viewport width
+  // Spawn within the visible viewport, slightly biased to the upper-mid area
+  const topPercent = (isMobile ? 15 : 10) + Math.random() * (isMobile ? 50 : 70);
+
+  // Randomise direction so not all stars travel to the right
+  const direction = Math.random() < 0.5 ? 1 : -1; // 1: left -> right, -1: right -> left
+
+  // Starting horizontal position in px, then converted to %
+  let startLeftPx;
+  if (direction === 1) {
+    // Left-to-right: start slightly off-left to mid screen
+    startLeftPx = -viewportWidth * 0.2 + Math.random() * viewportWidth * 0.4; // -20%..20%
+  } else {
+    // Right-to-left: start mid-right to slightly off-right
+    startLeftPx = viewportWidth * 0.6 + Math.random() * viewportWidth * 0.4; // 60%..100%
+  }
+  const leftPercent = (startLeftPx / viewportWidth) * 100;
+
   const angle = -10 + Math.random() * 20; // -10deg to +10deg
 
-  // Faster, longer streaks for a more cinematic feel
-  const distance = 360 + Math.random() * 160; // 360–520px travel distance
+  // Faster, longer streaks for a more cinematic feel, scaled to viewport width
+  const baseDistance = viewportWidth * (isMobile ? 0.7 : 0.5);
+  const distance = baseDistance * (0.9 + Math.random() * 0.4); // 0.9–1.3x base
   const drift = -10 + Math.random() * 20; // slight vertical drift
-  const duration = 0.6 + Math.random() * 0.4; // 0.6–1.0s (faster)
+  const duration = 0.6 + Math.random() * 0.4; // 0.6–1.0s
   const opacity = 0.4 + Math.random() * 0.3; // 0.4–0.7
 
   const tailLength = 80 + Math.random() * 90; // 80–170px
@@ -41,7 +58,7 @@ function createShootingStar() {
   star.style.top = `${topPercent}%`;
   star.style.left = `${leftPercent}%`;
 
-  track.style.setProperty("--star-distance", `${distance}px`);
+  track.style.setProperty("--star-distance", `${direction * distance}px`);
   track.style.setProperty("--star-drift", `${drift}px`);
   track.style.setProperty("--star-opacity", opacity.toString());
   track.style.transform = `rotate(${angle}deg)`;
