@@ -52,8 +52,9 @@ function createShootingStar() {
   const drift = -10 + Math.random() * 20; // slight vertical drift
   const duration = 0.6 + Math.random() * 0.4; // 0.6–1.0s
   const opacity = 0.4 + Math.random() * 0.3; // 0.4–0.7
-
-  const tailLength = 80 + Math.random() * 90; // 80–170px
+  // Tail length proportional to viewport width so it feels consistent on desktop and mobile
+  const baseTail = viewportWidth * (isMobile ? 0.25 : 0.18); // 25% width on mobile, 18% on desktop
+  const tailLength = baseTail * (0.9 + Math.random() * 0.3); // 0.9–1.2x base
 
   star.style.top = `${topPercent}%`;
   star.style.left = `${leftPercent}%`;
