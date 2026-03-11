@@ -509,6 +509,24 @@ a {
   gap: 18px;
 }
 
+/* Special layout for 5-step lead intelligence workflow */
+.workflow-lead {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.workflow-lead .workflow-step {
+  width: 100%;
+  max-width: 360px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.workflow-lead .workflow-arrow {
+  align-self: center;
+  transform: rotate(90deg);
+}
+
 .workflow-step {
   /* Large circular frame with text inside */
   width: 180px;
