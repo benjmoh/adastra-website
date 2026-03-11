@@ -4,6 +4,10 @@
 // - Each star has a bright head and a soft, fading tail.
 // - Movement, angle, length, opacity, and spawn timing are all slightly randomised
 //   to feel natural and cinematic.
+// - Spawn frequency is higher when the hero is in view, and lower when
+//   the user scrolls into the main content so it is less distracting.
+
+let heroInView = true;
 
 function createShootingStar() {
   const container = document.querySelector(".shooting-stars");
@@ -76,7 +80,11 @@ function createShootingStar() {
 
 function startShootingStars() {
   function scheduleNext() {
-    const interval = 10000 + Math.random() * 15000; // every 10–25 seconds
+    // More frequent when the hero is in view (user is taking in the first impression),
+    // less frequent deeper in the content so it doesn't distract from reading.
+    const min = heroInView ? 5000 : 8000;  // 5–10s in hero, 8–25s in content
+    const max = heroInView ? 10000 : 25000;
+    const interval = min + Math.random() * (max - min);
     setTimeout(() => {
       createShootingStar();
       scheduleNext();
@@ -119,6 +127,26 @@ window.addEventListener("DOMContentLoaded", () => {
      setTimeout(() => {
        heroIntro.classList.add("visible");
      }, 200);
+   }
+
+   // Track whether the hero is currently in view to adjust shooting star frequency
+   const heroSection = document.querySelector(".hero");
+   if (heroSection && "IntersectionObserver" in window) {
+     const heroObserver = new IntersectionObserver(
+       (entries) => {
+         entries.forEach((entry) => {
+           heroInView = entry.isIntersecting;
+         });
+       },
+       {
+         threshold: 0.35, // consider hero "in view" when ~1/3rd is visible
+       }
+     );
+
+     heroObserver.observe(heroSection);
+   } else {
+     // Fallback: assume hero is in view at load; user scrolling will be less dynamic
+     heroInView = true;
    }
 });
 
