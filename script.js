@@ -93,5 +93,14 @@ function setupFadeInSections() {
 window.addEventListener("DOMContentLoaded", () => {
   startShootingStars();
   setupFadeInSections();
+
+   // Fade in hero logo + title on initial load
+   const heroIntro = document.querySelector(".hero-intro");
+   if (heroIntro) {
+     // Slight delay so it feels intentional and cinematic
+     setTimeout(() => {
+       heroIntro.classList.add("visible");
+     }, 200);
+   }
 });
 

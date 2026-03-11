@@ -273,6 +273,17 @@ a {
   margin-inline: auto;
 }
 
+.hero-intro {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.hero-intro.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .hero-logo {
   margin-inline: auto;
   margin-bottom: 16px; /* tighter gap between logo and title */
@@ -376,8 +387,8 @@ a {
 }
 
 .logo-card-image {
-  /* Make icons large and prominent – similar visual weight to the title */
-  width: 72px;
+  /* Make icons significantly larger */
+  width: 360px; /* ~5x previous size (72px) */
   height: auto;
   object-fit: contain;
 }
