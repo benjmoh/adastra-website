@@ -472,6 +472,56 @@ a {
   font-size: 0.9rem;
 }
 
+/* Testimonials */
+.testimonial-card {
+  max-width: 720px;
+  margin-inline: auto;
+  margin-top: 8px;
+  background: rgba(24, 31, 47, 0.9);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  padding: 24px 22px 22px;
+  box-shadow: 0 0 32px rgba(15, 23, 42, 0.85);
+  text-align: left;
+}
+
+.testimonial-brand {
+  margin-bottom: 18px;
+}
+
+.testimonial-logo {
+  max-height: 56px;
+  width: auto;
+  max-width: min(240px, 70vw);
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.testimonial-quote {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.testimonial-quote p {
+  margin: 0 0 14px;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.testimonial-quote p:last-of-type {
+  margin-bottom: 0;
+}
+
+.testimonial-attribution {
+  margin: 18px 0 0;
+  font-size: 0.9rem;
+  color: rgba(226, 232, 240, 0.92);
+  font-style: normal;
+}
+
 /* -------------------------------------------------------------------------- */
 /*  Example workflows                                                         */
 /* -------------------------------------------------------------------------- */
