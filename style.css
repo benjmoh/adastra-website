@@ -489,11 +489,12 @@ a {
   width: 100%;
   margin-inline: auto;
   margin-top: 8px;
-  background: rgba(24, 31, 47, 0.9);
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(148, 163, 184, 0.45);
-  padding: 24px 22px 22px;
-  box-shadow: 0 0 32px rgba(15, 23, 42, 0.85);
+  /* No panel / frosted box — copy sits on the star background like other minimal sections */
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 8px 0 0;
   text-align: center;
 }
 
@@ -503,24 +504,15 @@ a {
   margin-bottom: 20px;
 }
 
-.testimonial-logo-frame {
-  width: 104px;
-  height: 104px;
-  border-radius: 999px;
-  overflow: hidden;
-  border: 1px solid rgba(148, 163, 184, 0.55);
-  background: radial-gradient(circle at top, rgba(15, 23, 42, 0.95), #020617);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px;
-  box-shadow: 0 0 24px rgba(15, 23, 42, 0.85);
-}
-
+/* Full logo at natural aspect ratio — no circle clipping a square asset */
 .testimonial-logo {
-  width: 100%;
-  height: 100%;
+  display: block;
+  width: auto;
+  max-width: min(280px, 85vw);
+  height: auto;
+  max-height: 72px;
   object-fit: contain;
+  object-position: center;
 }
 
 .testimonial-quote {
@@ -828,8 +820,8 @@ a {
 }
 
 .ready-circle {
-  width: 170px;
-  height: 170px;
+  width: 190px;
+  height: 190px;
   border-radius: 999px;
   border: 2px solid rgba(248, 250, 252, 0.9);
   display: flex;
@@ -838,7 +830,8 @@ a {
 }
 
 .ready-icon {
-  font-size: 2rem;
+  font-size: 2.85rem;
+  line-height: 1;
   color: rgba(248, 250, 252, 0.9);
 }
 
@@ -860,8 +853,12 @@ a {
   }
 
   .ready-circle {
-    width: 140px;
-    height: 140px;
+    width: 158px;
+    height: 158px;
+  }
+
+  .ready-icon {
+    font-size: 2.4rem;
   }
 
   .ready-arrow {
