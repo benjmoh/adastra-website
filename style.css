@@ -509,10 +509,10 @@ a {
   margin-bottom: 16px;
 }
 
-/* Small circle; image fills frame (cover) so no “square inside circle” */
+/* Circle; image fills frame (cover) so no “square inside circle” */
 .testimonial-logo-frame {
-  width: 48px;
-  height: 48px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
