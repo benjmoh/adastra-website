@@ -472,7 +472,15 @@ a {
   font-size: 0.9rem;
 }
 
-/* Testimonials */
+/* Testimonials — no tinted “window”; content sits on the star field like other sections */
+#testimonials.section,
+#testimonials .section-inner,
+#testimonials .section-heading,
+#testimonials .testimonial-card {
+  background: transparent;
+  box-shadow: none;
+}
+
 #testimonials .section-inner {
   display: flex;
   flex-direction: column;
@@ -489,11 +497,8 @@ a {
   width: 100%;
   margin-inline: auto;
   margin-top: 8px;
-  /* No panel / frosted box — copy sits on the star background like other minimal sections */
-  background: transparent;
   border: none;
   border-radius: 0;
-  box-shadow: none;
   padding: 8px 0 0;
   text-align: center;
 }
@@ -501,17 +506,26 @@ a {
 .testimonial-brand {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
-/* Full logo at natural aspect ratio — no circle clipping a square asset */
+/* Small circle; image fills frame (cover) so no “square inside circle” */
+.testimonial-logo-frame {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background: #020617;
+}
+
 .testimonial-logo {
   display: block;
-  width: auto;
-  max-width: min(280px, 85vw);
-  height: auto;
-  max-height: 72px;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
   object-position: center;
 }
 
