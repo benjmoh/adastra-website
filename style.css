@@ -323,16 +323,8 @@ a {
   color: rgba(226, 232, 240, 0.8);
 }
 
-.hero-description {
-  margin: 18px auto 0;
-  max-width: 40rem;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--muted);
-}
-
 .hero-cta {
-  margin-top: 28px;
+  margin-top: 32px;
 }
 
 .button-cta {
